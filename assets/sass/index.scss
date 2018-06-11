@@ -1,0 +1,52 @@
+@function count($n){
+	@return ($n/50);
+}
+$headcolor:                      rgba(28,56,93,0.5);
+$accolor:                        rgb(5,157,171);
+$fontSize:                       count(14rem);
+$bgcolor:                        rgb(37,65,113);
+$fontcolor:                      #fff;
+$fontcolor2:					 #c0d3e2;
+$linecolor:					     rgb(51,83,122);
+$itemcolor:                      rgba(255,255,255,.8);
+$insidecolor1:					 #1c3fd7;	
+$insidecolor2:					 #6034d5;				
+@mixin fl($data1,$data2,$data3:#fff){
+	font-size:$data1;
+	line-height:$data2;
+	color:$data3;
+}
+@mixin flex($data1,$data2){
+	display:flex;
+	flex-direction:$data1;
+	justify-content:$data2;
+}
+%margin{
+	margin-left: auto;
+	margin-right:auto;
+}
+%size{
+	width:count(298rem);
+	height:count(40rem);
+}
+%textstyle{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: break-all;
+}
+@mixin bg($data1,$data2,$data3,$data4,$data5){
+	$url:"../../assets/imgs/#{$data1}";
+	background:url($url) no-repeat $data2 $data3;
+	background-size:$data4 $data5;
+}
+@mixin position($ver1,$ver2,$data1,$data2,$type1:absolute){
+	position:$type1;
+	#{$ver1}:$data1;
+	#{$ver2}:$data2;
+}
+@mixin placeholder($class){
+	#{$class} input::-webkit-input-placeholder{
+		color:$itemcolor;
+	}
+}
+
