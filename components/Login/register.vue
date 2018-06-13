@@ -6,9 +6,11 @@
   element-loading-spinner="el-icon-loading"
   element-loading-background="rgba(0, 0, 0, 0)"
   :fullscreen="false">
-  <h1>
-    <span class="left_icon" @click="back()">&#xe625;</span>
-    {{$t('register.h1')}}</h1>
+  <Header :title="title">
+    <router-link :to="path" slot="left" class="fa fa-angle-left" tag="i"></router-link>
+    <i slot="right"></i>
+  </Header>
+  <div class="maincontent1">
     <div>
       <div class="input-item">
         <div class="label">{{$t('register.country')}}</div>
@@ -55,6 +57,7 @@
     </div>
     <div class="align-center"><i class="protocol fa fa-check-circle-o iconcheck"></i> {{$t('register.tip17')}}<div class="protocol">《{{$t('register.tip18')}}》</div></div> 
   </div>
+</div>
 </transition>
 </template>
 <script>
@@ -63,11 +66,13 @@
   import sha1 from "sha1";
   import country from "../../assets/js/config";
   import Ide from "./idenrun"; 
+  import Header from "../Public/header";
   export default {
    // linear-gradient(to right, yellow 0%,white 100%)
-   components:{Ide},
+   components:{Ide,Header},
    data() {
     return {
+      title:this.$t("login.register"),
       show: true,
       info: this.$t("register.tip5"),
       timer: null,
@@ -88,6 +93,9 @@
   },
   mounted() {},
   computed: {
+    path(){
+      return this.$route.params.path + "?path=register"
+    },
     msgType(){
       return this.$i18n.locale === "zh-CN"?"msg_ch":"msg_en";
     },
@@ -324,11 +332,14 @@
     margin: 0;
   }
   .register {
-    padding: 0 15px;
+  
     position: absolute;
     z-index: 99;
     width: 100%;
     box-sizing: border-box;
+    .maincontent1{
+      padding:0 15px;
+    }
     h1 {
       font-size: 16px;
       margin-bottom: 20px;

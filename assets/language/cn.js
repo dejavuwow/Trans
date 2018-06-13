@@ -1,4 +1,9 @@
 module.exports = {
+    scroll:{
+        up:"上拉加载更多",
+        loosen:"松开立即加载",
+        nomore:"没有更多数据",
+    },
     excenter:"交易中心",
     headpic:{
         "1":"成功",
@@ -709,7 +714,8 @@ module.exports = {
     note:{
         title:'公告',
         tip1:'生成中...',
-        tip2:'地址生成失败，请稍后重试'
+        tip2:'地址生成失败，请稍后重试',
+        tip3:"公告详情"
     },
     detail:{
         tip1:'买家',

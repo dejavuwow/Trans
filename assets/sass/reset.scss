@@ -1,3 +1,4 @@
+@import "./index.scss";
 html,body{
 	width:100%;
 	height:100%;
@@ -122,5 +123,31 @@ button{
 	border-radius: 4px;
 	color: #333;
 	border: 1px solid #f1b90c;
+}
+.contwrap{
+	@include position(top,bottom,.9rem,0);
+	width:100%;
+	overflow: hidden;
+}
+.iScrollVerticalScrollbar {
+	position: absolute;
+	z-index: 9999;
+	bottom: 2px;
+	top: 2px;
+	right: 2.5px;
+	overflow: hidden;
+	width:2.5px;
+}
+.iScrollIndicator {
+	background: rgba(128,128,128,.6);
+	border-style: solid;
+	border-radius: 1.25px;
+	border-color:$headcolor;
+}
+.up{
+	line-height:30px;
+	text-align: center;
+	color:#aaa;
+	font-size: 14px;
 }
 

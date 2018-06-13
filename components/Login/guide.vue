@@ -50,7 +50,6 @@
 					}
 					)
 				.then(response => {
-					this.loading2 = false;
 					response = response.body;
 					switch(response.error_code){
 						case 0:
@@ -73,11 +72,13 @@
 					}
 				})
 				.catch((response) => {
-					_this.loading2 = false;
 					this.$message({
 						message: this.$t("err.info"),
 						duration: 1500
 					});
+				})
+				.finally(() => {
+					this.loading2 = false;
 				});
 			}, 150);
 		},

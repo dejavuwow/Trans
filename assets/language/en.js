@@ -1,5 +1,10 @@
 module.exports= {
     excenter:"Trade Center",
+    scroll:{
+        up:"up to load more...",
+        loosen:"loosen to show",
+        nomore:"no more",
+    },
     headpic:{
         "1":"success",
         "2":"Failed to upload head image",
@@ -715,7 +720,8 @@ module.exports= {
     note:{
         title:'Announcement',
         tip1:'Generating...',
-        tip2:'Address generation failed, please try again later'
+        tip2:'Address generation failed, please try again later',
+        tip3:"Announcement details"
     },
     detail:{
         tip1:'Buyer',
