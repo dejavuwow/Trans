@@ -40,6 +40,9 @@ import note from '../components/Home/notice'
 import Aboutus from '../components/Person/aboutus'
 import About from '../components/Person/about'
 import Notelist from '@/components/Home/notelist'
+
+import  Identification from '@/components/Home/identification'
+
 Vue.use(Router)
 Router.prototype.goBack = function () {
 	this.isBack = true
@@ -53,6 +56,11 @@ export default new Router({
   			path:"/notelist",
   			component:Notelist,
   			name:'notelist'
+  		},
+  		{
+  			path:"/identification",
+  			component:Identification,
+  			name:'identification'
   		},
   		{
   			path:'/about',
