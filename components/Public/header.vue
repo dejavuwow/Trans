@@ -1,7 +1,7 @@
 <template>
   <div class="pub_head">
     <slot name="left"></slot>
-    <span>{{title}}</span>
+    <span class="he_title">{{title}}</span>
     <slot name="right"></slot>
   </div>
 </template>
@@ -28,6 +28,9 @@
     }
     span{
       @include fl(0.3rem,.9rem,#fff);
+    }
+    .he_title{
+      font-size: 0.4rem;
     }
   }
 </style>
