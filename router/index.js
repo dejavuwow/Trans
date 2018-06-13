@@ -36,9 +36,10 @@ import chat from '../components/C2C/c2ctrade/chat'
 import tips from '../components/Home/tips'
 import out_record from '../components/Person/out-record'
 import service from '../components/Home/service'
-import note from '../components/Home/note'
+import note from '../components/Home/notice'
 import Aboutus from '../components/Person/aboutus'
 import About from '../components/Person/about'
+import Notelist from '@/components/Home/notelist'
 Vue.use(Router)
 Router.prototype.goBack = function () {
 	this.isBack = true
@@ -46,8 +47,13 @@ Router.prototype.goBack = function () {
 }
 
 export default new Router({
-  		// mode:'history',
+  		
   		routes: [
+  		{
+  			path:"/notelist",
+  			component:Notelist,
+  			name:'notelist'
+  		},
   		{
   			path:'/about',
   			component:About,
@@ -215,7 +221,7 @@ export default new Router({
 	  	component:service
 	  },
 	  {
-	  	path:'/note',
+	  	path:'/notice',
 	  	component:note
 	  },
 	  ]

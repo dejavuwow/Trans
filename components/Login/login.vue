@@ -174,6 +174,7 @@
             // _this.slideName = "slide-bottom";
             localStorage.setItem("uid", response.data.data.data.uid);
             localStorage.setItem("phone", response.data.data.data.phone);
+            localStorage.setItem("loginSign", response.data.data.data.loginsign);
             _this.$router.push({ name: "Home", params: { res: "Home" } });
             this.$message({
               message: this.$t("login.tip3"),
