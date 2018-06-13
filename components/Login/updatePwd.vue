@@ -124,6 +124,7 @@
 					});
 					return false;
 				}
+				this.loading2 = true;
 				this.$http
 				.post(
 					this.$store.state.url + "api/user/retrievePassword",

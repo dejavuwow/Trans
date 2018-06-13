@@ -1,14 +1,16 @@
 <template>
 	<transition :name="slideName">
-	<div class="login body_wrap"
+		<div class="reset body_wrap"
 		v-loading="loading2"
 		:element-loading-text="$t('err.tip14')"
 		element-loading-spinner="el-icon-loading"
 		element-loading-background="rgba(0, 0, 0, 0.8)"
 		:fullscreen="false">
-		<h1>
-			<span class="left_icon" @click="back()">&#xe625;</span>
-			{{$t('findPwd.h1')}}</h1>
+		<Header :title="$t('findPwd.h1')">
+			<router-link to="/findpwd?path=resetPwd" slot="left" class="fa fa-angle-left" tag="i"></router-link>
+			<i slot="right"></i>
+		</Header>
+		<div class="upwrap1">
 			<div class="input-items">
 				<input type="password" :placeholder="$t('findPwd.pwd')" v-model="pwd">
 			</div>
@@ -17,13 +19,16 @@
 			</div>
 			<button class="btn-gold" @click="complete()">{{$t('bank.tip18')}}</button>
 		</div>
-	</transition>
+	</div>
+</transition>
 </template>
 <script>
 	import md5 from "md5";
 	import sha1 from "sha1";
+	import Header from "../Public/header";
 	export default {
 		name: "resetPwd",
+		components:{Header},
 		data() {
 			return {
 				slideName: "slide-left",
@@ -72,15 +77,21 @@
 					});
 					return false;
 				}
+				this.loading2 = true;
 				this.$http
 				.post(
-					this.$store.state.url + "Api/Login/subForgetpassword",
+					this.$store.state.url + "api/user/resetPassword",
 					{
-						user: this.user,
-						pwd: this.pwdMd5,
-						repwd: this.repwdMd5,
-						token: sha1(
-							this.user + this.pwdMd5 + this.repwdMd5 + this.$store.state.str
+						uid:localStorage.getItem("uid"),
+						loginSign:localStorage.getItem("loginSign"),
+						logpwd: this.pwd,
+						logpwd_confirm: this.re_pwd,
+						accessToken:md5(
+							localStorage.getItem("uid") +"," +
+							localStorage.getItem("loginSign") + "," +
+							this.pwd +"," +
+							this.re_pwd +"," +
+							this.$store.state.str
 							)
 					},
 					{
@@ -88,17 +99,17 @@
 						emulateJSON: true
 					}
 					)
-				.then(res => {
+				.then(response => {
 					this.loading2 = false;
-					if (res.data.status == 1) {
+					if (response.data.error_code === 0) {
 						this.$message({
 							message: this.$t("findPwd.tip8"),
 							duration: 1500
 						});
 						this.$router.push({ path: "/", params: { t: "1" } });
-					} else if (res.data.status == 3) {
+					} else{
 						this.$message({
-							message: this.$t("findPwd.tip13"),
+							message: response.data.data[this.msgType],
 							duration: 1500
 						});
 					}
@@ -115,12 +126,14 @@
 	};
 </script>
 <style lang="less">
-	.login {
-		padding: 0 15px;
+	.reset {
 		position: absolute;
 		z-index: 99;
 		width: 100%;
 		box-sizing: border-box;
+		.upwrap1{
+			padding:0 15px;
+		}
 		h1 {
 			font-size: 16px;
 			font-weight: normal;
@@ -128,7 +141,7 @@
 			line-height: 40px;
 		}
 		.input-items {
-			border-bottom: 1px solid rgb(38, 38, 58);
+			border-bottom: 1px solid #44352f;
 			margin: 0;
 		}
 		input {
@@ -136,7 +149,6 @@
 			padding: 15px 0;
 			text-align: left;
 			border: none;
-			border-bottom: 1px solid rgb(38, 38, 58);
 			color: #d6e9fc;
 		}
 		.find {
