@@ -30,7 +30,7 @@
       @include fl(0.3rem,.9rem,#fff);
     }
     .he_title{
-      font-size: 0.4rem;
+      font-size: 0.35rem;
     }
   }
 </style>

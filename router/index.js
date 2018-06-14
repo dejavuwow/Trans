@@ -10,6 +10,8 @@ import resetPwd from '../components/Login/resetPwd'
 import setting from '../components/Person/setting'
 import note from '../components/Home/notice'
 import Notelist from '@/components/Home/notelist'
+import WalletAddr from '@/components/Person/walletAddr'
+import Order from "@/components/C2C/order"
 
 import  Identification from '@/components/Home/identification'
 
@@ -17,6 +19,16 @@ Vue.use(Router)
 
 export default new Router({	
 	routes: [
+	{
+		path:"/order",
+		component:Order,
+		name:'order'
+	},
+	{
+		path:"/walletAddr",
+		component:WalletAddr,
+		name:'walletaddr'
+	},
 	{
 		path:"/notelist",
 		component:Notelist,

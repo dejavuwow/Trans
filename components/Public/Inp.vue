@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<input type="text" 
+		<input :type="inputData.type" 
 		:value = "inputData.value"
 		:placeholder = "inputData.placeholder"
 		:name = "inputData.name"

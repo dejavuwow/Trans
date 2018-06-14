@@ -141,6 +141,27 @@ Vue.mixin({
 		msgType(){
 			return this.$i18n.locale === "zh-CN"?"msg_ch":"msg_en";
 		},
+	},
+	methods:{
+
+		//封装请求后台的基础参数
+		baseApi(api,...args){
+			let [uid,loginSign] = [localStorage.getItem("uid"),localStorage.getItem("loginSign")];
+			let basInfo = {
+				method:"post",
+				url: this.$store.state.url+api,
+				data:{
+					uid,
+					loginSign,
+				}
+			};
+			for(let i of args){
+				Object.assign(basInfo.data,i)
+			}
+			this.bindToken(basInfo.data,this.$store.state.str);
+			basInfo.data = this.paramsPak(basInfo.data);
+			return basInfo;
+		}
 	}
 })
 
