@@ -35,51 +35,47 @@
 							<div >完善信息</div>   
 						</div>
 					</div>
-					<div class="name">
-						<span class="na">姓名</span>
-						<div class="na_text">
-							<input type="text" placeholder="请输入姓名">
-						</div>
-					</div> 
-					<div class="country">
-						<span class="na">国家/地区</span>
-						<div class="na_text">China-中国</div>
-					</div>  
-					<div class="country">
-						<span class="na">证件类型</span>
-						<div class="na_text">身份证</div>
-					</div>
-					<div class="number">
-						<span class="na">证件号码</span>
-						<div class="na_text">
-							<input type="text" placeholder="请输入身份证号码">
-						</div>
-					</div>  
-					<div class="country">
-						<span class="na">性别</span>
-						<div class="na_text">男</div>
-					</div>
-					<div class="number">
-						<span class="na">出生日期</span>
-						<div class="na_text">
-							<input type="text" placeholder="格式：19920101">
-						</div>
-					</div>  
-					<div class="number">
-						<span class="na">职业</span>
-						<div class="na_text">
-							<input type="text" placeholder="请输入职业类型">
-						</div>
-					</div>
-					<div class="number">
-						<span class="na">常用地址</span>
-						<div class="na_text">
-							<input type="text" placeholder="请输入常用地址">
-						</div>
-					</div> 
-					<div class="id_btn">
-						<button class="btn">确认提交</button> 
-					</div>                               
+					<div class="tips">
+                        <p>风险提示告知</p>
+                        <span>APV等数字货币交易为7X24小时连续交易。请综合考虑自身的投资经历、财务状况、风险承受能力等因素，充分了解诺一股等数字货币交易特性和风险的前提下，慎重、理性投资，避免因盲目投资而带来的损失。
+                        </span>
+                        <div class="radio">
+                            <div>
+                                <input type="radio" name="agree">本人同意
+                            </div>
+                            <div>
+                                <input type="radio" name="agree">本人不同意
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="tips">
+                        <p>法律告知</p>
+                        <span>您承诺以上提供的所有证件、资料、信息均为本人合法所有，且真实有效。若验证过程中发现证件、资料、信息均为冒用、虚假、伪造，或存在此等风险的，APV交易平台有权不经事先通知即冻结关联账户，并向公安机关举报。
+                        </span>
+                        <div class="radio">
+                            <div>
+                                <input type="radio" name="agree1">本人同意
+                            </div>
+                            <div>
+                                <input type="radio" name="agree1">本人不同意
+                            </div>
+                        </div>
+                    </div>     
+                    <div class="tips">
+                        <span class="myspan">根据“反洗钱法”及相关规定，APV交易平台可能在注册、充值、交易、提现等过程中向您了解资金来源及资金流向，若您拒绝告知或虚假陈述，APV交易平台有权不再另行通知即冻结您的账户。
+                        </span>
+                        <div class="radio">
+                            <div>
+                                <input type="radio" name="agree2">本人同意
+                            </div>
+                            <div>
+                                <input type="radio" name="agree2">本人不同意
+                            </div>
+                        </div>
+                        <div class="up_btn">
+						    <button class="btn">确认风险提示</button> 
+					    </div>
+                    </div>                                   
 				</div>
 			</div>
 		</div>
@@ -203,7 +199,7 @@ export default {
 }
 .id_all {
   border-top: 1px solid #44352f;
-  border-bottom: 1px solid #44352f;
+//   border-bottom: 1px solid #44352f;
   width: 100%;
   height: 90px;
   background-color: #333333;
@@ -222,7 +218,7 @@ export default {
   display: flex;
   justify-content: space-around;
   margin-left: 13px;
-  color: #a1968f;
+  color: #f39902;
   font-size: 0.3rem;
   margin-top: -10px;
 }
@@ -248,85 +244,76 @@ export default {
 .top_third {
   width: 40px;
   height: 40px;
-  background-color: #a1968f;
+  background-color: #f39902;
   border-radius: 20px;
   text-align: center;
   color: #1d1c1c;
   font-size: 0.5rem;
   line-height: 40px;
+  color: white;
 }
 .top_fourth {
   width: 80px;
   height: 1px;
-  background-color: #a1968f;
+  background-color: #f39902;
   margin-top: 20px;
 }
 .top_fifth {
   width: 40px;
   height: 40px;
-  background-color: #a1968f;
+  background-color: #f39902;
   border-radius: 20px;
   text-align: center;
   color: #1d1c1c;
   font-size: 0.5rem;
   line-height: 40px;
+  color: white;
 }
-.name {
-  width: 90%;
-  height: 60px;
-  color: #786f6a;
-  font-size: 0.35rem;
-  border-bottom: 1px solid #44352f;
-  margin-left: 20px;
-  line-height: 60px;
-  display: inline-block;
+.tips{
+    width: 97%;
+    height: 220px;
+    border-top: 1px solid #44352f;
+    p{
+        text-align: center;
+        color: #a1968f;
+        font-size: 0.35rem;
+        padding: 20px 0px;
+    }
+    span{
+        display: inline-block;
+        margin-left: 10px;
+        color: #a1968f;
+        font-size: 0.28rem;
+    }
+    .radio{
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-around;
+        font-size: 0.3rem;
+
+    }
+    .up_btn {
+        width: 100%;
+        height: 100px;
+        margin-top: 10px;
+        margin-left: 5px;
+        .btn {
+            height: 50px;
+            width: 93%;
+            background-color: #f39902;
+            font-size: 0.3rem;
+            border-radius: 5px;
+            margin-left: 15px;
+        }
+    }
 }
-.na {
-  width: 130px;
-  height: 60px;
-  float: left;
+.myspan{
+    margin-top: 20px;
 }
-.na_text {
-  float: left;
-}
-.na_text input {
-  font-size: 0.3rem;
-}
-.country {
-  width: 90%;
-  height: 60px;
-  color: #786f6a;
-  font-size: 0.35rem;
-  border-bottom: 1px solid #44352f;
-  margin-left: 20px;
-  line-height: 60px;
-  display: inline-block;
-  .na_text {
-    color: white;
-  }
-}
-.number {
-  width: 90%;
-  height: 60px;
-  color: #786f6a;
-  font-size: 0.35rem;
-  border-bottom: 1px solid #44352f;
-  margin-left: 20px;
-  line-height: 60px;
-  display: inline-block;
-}
-.id_btn {
-  width: 100%;
-  height: 200px;
-}
-.btn {
-  height: 50px;
-  width: 93%;
-  background-color: #f39902;
-  font-size: 0.3rem;
-  border-radius: 5px;
-  margin-left: 15px;
-}
+
+
+
+
 </style>
 
 

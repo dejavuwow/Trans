@@ -30,55 +30,40 @@
 						<div class="id_top1">
 							<div class="msg">基础信息</div>
 							<div ></div>
-							<div >上传证件</div>  
+							<div class="msg">上传证件</div>  
 							<div ></div>
 							<div >完善信息</div>   
 						</div>
 					</div>
-					<div class="name">
-						<span class="na">姓名</span>
-						<div class="na_text">
-							<input type="text" placeholder="请输入姓名">
-						</div>
-					</div> 
-					<div class="country">
-						<span class="na">国家/地区</span>
-						<div class="na_text">China-中国</div>
-					</div>  
-					<div class="country">
-						<span class="na">证件类型</span>
-						<div class="na_text">身份证</div>
-					</div>
-					<div class="number">
-						<span class="na">证件号码</span>
-						<div class="na_text">
-							<input type="text" placeholder="请输入身份证号码">
-						</div>
-					</div>  
-					<div class="country">
-						<span class="na">性别</span>
-						<div class="na_text">男</div>
-					</div>
-					<div class="number">
-						<span class="na">出生日期</span>
-						<div class="na_text">
-							<input type="text" placeholder="格式：19920101">
-						</div>
-					</div>  
-					<div class="number">
-						<span class="na">职业</span>
-						<div class="na_text">
-							<input type="text" placeholder="请输入职业类型">
-						</div>
-					</div>
-					<div class="number">
-						<span class="na">常用地址</span>
-						<div class="na_text">
-							<input type="text" placeholder="请输入常用地址">
-						</div>
-					</div> 
+                    <div class="tip">
+                        <p>温馨提示:</p>
+                        <p>每张图片大小不能超过5MB，请按照下列要求拍照上传。</p>
+                    </div>
+                    <p class="tip_p">•请上传清晰的身份证正面照片，拍照时确保无反光、无遮挡</p>
+                    <div class="imageFileInput">
+                        <i class="iconfont icon-scanwebiconcanmera ts-iconfont"></i>
+                        <input class="fileInput" type="file" id="" name="">
+                    </div>
+                    <p class="tip_p">•请上传清晰的身份证正面照片，拍照时确保无反光、无遮挡</p>
+                    <div class="imageFileInput">
+                        <i class="iconfont icon-scanwebiconcanmera ts-iconfont"></i>
+                        <input class="fileInput" type="file" id="" name="">
+                    </div>
+                    <p class="tip_p">•请上传清晰的手持身份证照片，需免冠，五官清晰可见，建议未化妆，完全露出双臂（如下图所示）</p>
+                    <div class="img">
+                        <img src="../../assets/img/id.jpg">
+                    </div>
+					<p class="tip_p">•请确保身份证中的信息清晰可见，否则无法通过审核。</p>
+                    <div class="imageFileInput">
+                        <i class="iconfont icon-scanwebiconcanmera ts-iconfont"></i>
+                        <input class="fileInput" type="file" id="" name="">
+                    </div>
+                    <div class="tip">
+                        <i class="iconfont icon-finish ts-iconfont"></i>
+                        <span>点击确认上传按钮，即代表您承诺以上的所有证件、资料、信息均为本人合法所有，且真实有效。</span>
+                    </div>
 					<div class="id_btn">
-						<button class="btn">确认提交</button> 
+						<button class="btn">确认上传</button> 
 					</div>                               
 				</div>
 			</div>
@@ -248,10 +233,10 @@ export default {
 .top_third {
   width: 40px;
   height: 40px;
-  background-color: #a1968f;
+  background-color: #f39902;
   border-radius: 20px;
   text-align: center;
-  color: #1d1c1c;
+  color: white;
   font-size: 0.5rem;
   line-height: 40px;
 }
@@ -271,50 +256,6 @@ export default {
   font-size: 0.5rem;
   line-height: 40px;
 }
-.name {
-  width: 90%;
-  height: 60px;
-  color: #786f6a;
-  font-size: 0.35rem;
-  border-bottom: 1px solid #44352f;
-  margin-left: 20px;
-  line-height: 60px;
-  display: inline-block;
-}
-.na {
-  width: 130px;
-  height: 60px;
-  float: left;
-}
-.na_text {
-  float: left;
-}
-.na_text input {
-  font-size: 0.3rem;
-}
-.country {
-  width: 90%;
-  height: 60px;
-  color: #786f6a;
-  font-size: 0.35rem;
-  border-bottom: 1px solid #44352f;
-  margin-left: 20px;
-  line-height: 60px;
-  display: inline-block;
-  .na_text {
-    color: white;
-  }
-}
-.number {
-  width: 90%;
-  height: 60px;
-  color: #786f6a;
-  font-size: 0.35rem;
-  border-bottom: 1px solid #44352f;
-  margin-left: 20px;
-  line-height: 60px;
-  display: inline-block;
-}
 .id_btn {
   width: 100%;
   height: 200px;
@@ -326,6 +267,52 @@ export default {
   font-size: 0.3rem;
   border-radius: 5px;
   margin-left: 15px;
+}
+.tip{
+    margin-top:20px;
+    margin-bottom: 20px;
+    color: #786f6a;
+    margin-left: 10px;
+    i{
+        color: #f39902;
+    }
+}
+.tip_p{
+    margin-top:20px;
+    margin-bottom: 20px;
+    color: #f39902;
+    margin-left: 10px;
+    font-size: 0.25rem;
+}
+.imageFileInput{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background-color: white;
+    border-radius: 10px; 
+    margin:  0 auto;
+    .iconfont{
+        font-size: 1rem;
+        margin-left: 22px;
+        line-height: 100px;
+        color: #c1b7b0;
+    }
+
+}
+.fileInput{
+    width: 100px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.img{
+    width: 100%;
+    img{
+        width: 100%;
+        // height: 200px;        
+    }
 }
 </style>
 
