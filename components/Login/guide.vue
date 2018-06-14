@@ -96,7 +96,7 @@
 			login(){
 				if(this.isOK != 0){
 					this.isOK == 2
-					?this.$router.push({name:"login"})
+					?this.$router.push({path:"/login",query:{path:"guide"}})
 					:this.$message({
 						message: this.$t("err.tip17"),
 						duration: 1500
@@ -106,7 +106,7 @@
 			regist(){
 				if(this.isOK != 0){
 					this.isOK == 2
-					?this.$router.push({name:"register",params:{path:"guide"}})
+					?this.$router.push({path:"/register",query:{path:"guide"}})
 					:this.$message({
 						message: this.$t("err.tip17"),
 						duration: 1500

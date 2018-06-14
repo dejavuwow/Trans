@@ -91,13 +91,13 @@
 					return false;
 				}
 				this.loading2=true;
-				let [id,loginSign] = [localStorage.getItem("uid"),localStorage.getItem("loginSign")];
-				let baseStr = this.$store.state.str;
+				let [uid,loginSign] = [localStorage.getItem("uid"),localStorage.getItem("loginSign")];
+				const baseStr = this.$store.state.str;
 				let basInfo = {
 					method:"post",
 					url: this.$store.state.url+"api/user/tradepwdEdit",
 					data:{
-						id,
+						uid,
 						loginSign,
 						oldtradepwd:this.oldpwdtrade,
 						tradepwd:this.pwdtrade,
@@ -106,7 +106,7 @@
 					}
 				};
 
-				this.bindToken(basInfo,baseStr);//给basInfo绑定accesstoken属性
+				this.bindToken(basInfo.data,baseStr);//给basInfo绑定accesstoken属性
 				basInfo.data = this.paramsPak(basInfo.data);
 
 				axios(basInfo)

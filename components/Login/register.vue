@@ -94,7 +94,7 @@
   mounted() {},
   computed: {
     path(){
-      return this.$route.params.path + "?path=register"
+      return this.$route.query.path + "?path=register"
     },
     msgType(){
       return this.$i18n.locale === "zh-CN"?"msg_ch":"msg_en";
