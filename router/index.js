@@ -42,6 +42,10 @@ import About from '../components/Person/about'
 import Notelist from '@/components/Home/notelist'
 
 import  Identification from '@/components/Home/identification'
+import  Idstepthree from '@/components/Home/idstepthree'
+import  Idsteptwo from '@/components/Home/idsteptwo'
+import  Idfinish from '@/components/Home/idfinish'
+
 
 Vue.use(Router)
 Router.prototype.goBack = function () {
@@ -61,7 +65,22 @@ export default new Router({
   			path:"/identification",
   			component:Identification,
   			name:'identification'
-  		},
+		  },
+		{
+			path:"/idstepthree",
+			component:Idstepthree,
+			name:'idstepthree'
+		},
+		{
+			path:"/idsteptwo",
+			component:Idsteptwo,
+			name:'idsteptwo'
+		},
+		{
+			path:"/idfinish",
+			component:Idfinish,
+			name:'idfinish'
+		},
   		{
   			path:'/about',
   			component:About,
