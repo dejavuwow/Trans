@@ -38,7 +38,7 @@ Object.assign(Vue.prototype,{
 	},
 
 	//给对象绑定token方法
-	bindToken({data},baseStr){
+	bindToken(data,baseStr){
 		return Object.defineProperty(data,"accessToken",{
 			get:this.accessToken(baseStr),
 			enumerable : true,
@@ -80,18 +80,20 @@ Object.assign(Vue.prototype,{
   	 		if(arg.scroll.loadtext == arg.$t('scroll.loosen')){
   	 			let info = arg.deepCopy(data);
   	 			let page = ++arg.scroll.page;
-  	 			Object.assign(info,page);
+  	 			Object.assign(info,{page});
+  	 			arg.bindToken(info,arg.$store.state.str);//给info绑定accesstoken属性
   	 			axios({
   	 				method,
   	 				url,
   	 				data:arg.paramsPak(info),
   	 			})
   	 			.then(response => {
-  	 				console.log(response)
   	 				if(response.data.error_code == 0){
   	 					arg.list = [...arg.list,...response.data.data.data];
   	 					arg.scroll.display = false;
   	 					arg.scroll.loadtext = arg.$t('scroll.up');
+  	 				}else{
+  	 					arg.scroll.loadtext = arg.$t('scroll.nomore');
   	 				}
   	 			})
   	 			.then(() => {

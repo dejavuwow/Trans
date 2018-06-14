@@ -5,20 +5,22 @@
 				<i slot="left" class="fa fa-angle-left"></i>
 				<i slot="right"></i>
 			</Header>
-			<div class="contwrap" ref="wrap">
-				<div class="maincontent">
-					<ul class="notelist">
-						<router-link v-for="(item,index) in list" :to="{path:'/notice',query:item}" tag="li" :key="index">
-							<span v-if="$i18n.locale === 'zh-CN'">{{item.title_ch}}</span>
-							<span v-else>{{item.title_en}}</span>
-							<i>{{item.create_time}}</i>
-						</router-link>
-					</ul>
-					<div class="up" v-show="scroll.display">{{scroll.loadtext}}</div>
-				</div>	
-			</div>
+			<div class="contwrap" ref="wrap" 
+			v-loading="loading" 
+			>
+			<div class="maincontent">
+				<ul class="notelist">
+					<router-link v-for="(item,index) in list" :to="{path:'/notice',query:item}" tag="li" :key="index">
+						<span v-if="$i18n.locale === 'zh-CN'">{{item.title_ch}}</span>
+						<span v-else>{{item.title_en}}</span>
+						<i>{{item.create_time}}</i>
+					</router-link>
+				</ul>
+				<div class="up" v-show="scroll.display">{{scroll.loadtext}}</div>
+			</div>	
 		</div>
-	</transition>
+	</div>
+</transition>
 </template>
 <script>
 	import axios from "axios";
@@ -29,6 +31,7 @@
 		components:{Header},
 		data() {
 			return {
+				loading:false,
 				transitionName:"",
 				title:this.$t('note.title'),
 				list:[],
@@ -79,11 +82,11 @@
 				}
 			};
 			
-			this.bindToken(basInfo,baseStr);//给basInfo绑定accesstoken属性
-
 			let info = this.deepCopy(basInfo);
+			this.bindToken(info.data,baseStr);//给info绑定accesstoken属性
 
 			info.data = this.paramsPak(info.data);
+			this.loading = true;
 			axios(info)
 			.then((response) => {
 				if(response.data.error_code == 0){
@@ -119,7 +122,10 @@
 				this.$message({
 					message: this.$t("err.info"),
 					duration: 1500
-				});
+				})
+			})
+			.finally(() => {
+				this.loading = false;
 			})
 		},
 		beforeRouteLeave(to,from,next){
