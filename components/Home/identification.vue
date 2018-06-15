@@ -91,107 +91,20 @@ import md5 from "md5";
 import Header from "../Public/header";
 import IScroll from "iscroll/build/iscroll-probe";
 export default {
-  components: { Header },
-  data() {
-    return {
-      transitionName: "",
-      // title:this.$t('note.title'),
-      title: "实名认证",
-      list: [],
-      scroll: {
-        display: false,
-        loadtext: this.$t("scroll.up"),
-        page: 0
-      }
-    };
-  }
-  // methods: {
-  // 	iScrollClick(){
-  // 		if (/iPhone|iPad|iPod|Macintosh/i.test(navigator.userAgent)) return false;
-  // 		if (/Chrome/i.test(navigator.userAgent)) return (/Android/i.test(navigator.userAgent));
-  // 		if (/Silk/i.test(navigator.userAgent)) return false;
-  // 		if (/Android/i.test(navigator.userAgent)) {
-  // 			var s=navigator.userAgent.substr(navigator.userAgent.indexOf('Android')+8,3);
-  // 			return parseFloat(s[0]+s[3]) < 44 ? false : true
-  // 		}
-  // 	},
-  // 	//定义深度拷贝对象方法
-  // 	deepCopy(obj,arr={}){
-  // 		for(let i in obj){
-  // 			if(typeof obj[i] === 'object' ){
-  // 				arr[i] = obj[i].constructor === Array?[]:{};
-  // 				this.deepCopy(obj[i],arr[i]);
-  // 			}else{
-  // 				arr[i] = obj[i];
-  // 			}
-  // 		}
-  // 		return arr;
-  // 	}
-  // },
-  // computed: {
-  // },
-  // created() {
-  // 	this.transitionName = this.$route.query.path === "notice"?"slide-left":"slide-right";
-
-  // 	let [uid,loginSign] = [localStorage.getItem("uid"),localStorage.getItem("loginSign")];
-  // 	let baseStr = this.$store.state.str;
-
-  // 	let basInfo = {
-  // 		method:"post",
-  // 		url: this.$store.state.url+"api/Article/getArticleList",
-  // 		data:{
-  // 			uid,
-  // 			loginSign,
-  // 		}
-  // 	};
-
-  // 	this.bindToken(basInfo,baseStr);//给basInfo绑定accesstoken属性
-
-  // 	let info = this.deepCopy(basInfo);
-
-  // 	info.data = this.paramsPak(info.data);
-  // 	axios(info)
-  // 	.then((response) => {
-  // 		if(response.data.error_code == 0){
-  // 			this.list = response.data.data.data;
-  // 		}
-  // 	})
-  // 	.then(() => {
-  // 		//请求数据更新视图完成后初始化Iscroll
-  // 		setTimeout(()=>{
-  // 			this.myscroll=new IScroll(this.$refs.wrap,{
-  // 				click:this.iScrollClick(),
-  // 				scrollbars: true,
-  // 				mouseWheel: false,
-  // 				probeType:2,
-  // 				scrollbars: 'custom',
-  // 				fadeScrollbars:true,
-  // 				shrinkScrollbars:'clip'
-  // 			});
-  // 			document.addEventListener('touchmove', function(e) {
-  // 				e.preventDefault();
-  // 			}, {passive:false,capture:false})
-
-  // 			//绑定this环境,定义scroll方法
-  // 			let scrollFun = this.scrollFun(this);
-  // 			this.myscroll.on("scroll",scrollFun);
-
-  // 			//定义scrollEnd方法
-  // 			let scrollEnd = this.scrollEnd(this,basInfo);
-  // 			this.myscroll.on("scrollEnd",scrollEnd);
-  // 		},300);
-  // 	})
-  // 	.catch((e) => {
-  // 		this.$message({
-  // 			message: this.$t("err.info"),
-  // 			duration: 1500
-  // 		});
-  // 	})
-  // },
-  // beforeRouteLeave(to,from,next){
-  // 	this.transitionName = to.path === "/notice"?"slide-left":"slide-right";
-  // 	setTimeout(next,50);
-  // }
+	components: { Header },
+	data() {
+		return {
+			transitionName: "",
+			// title:this.$t('note.title'),
+			title: "实名认证",
+			list: [],
+			scroll: {
+				display: false,
+				loadtext: this.$t("scroll.up"),
+				page: 0
+			}
+		};
+	}
 };
 </script>
 <style lang="scss">
@@ -202,130 +115,130 @@ export default {
 	overflow:auto;
 }
 .id_all {
-  border-top: 1px solid #44352f;
-  border-bottom: 1px solid #44352f;
-  width: 100%;
-  height: 90px;
-  background-color: #333333;
+	border-top: 1px solid #44352f;
+	border-bottom: 1px solid #44352f;
+	width: 100%;
+	height: 90px;
+	background-color: #333333;
 }
 .id_top {
-  width: 85%;
-  height: 60%;
-  display: flex;
-  justify-content: space-around;
-  padding-top: 10px;
-  margin-left: 30px;
+	width: 85%;
+	height: 60%;
+	display: flex;
+	justify-content: space-around;
+	padding-top: 10px;
+	margin-left: 30px;
 }
 .id_top1 {
-  width: 95%;
-  height: 60%;
-  display: flex;
-  justify-content: space-around;
-  margin-left: 13px;
-  color: #a1968f;
-  font-size: 0.3rem;
-  margin-top: -10px;
+	width: 95%;
+	height: 60%;
+	display: flex;
+	justify-content: space-around;
+	margin-left: 13px;
+	color: #a1968f;
+	font-size: 0.3rem;
+	margin-top: -10px;
 }
 .msg {
-  color: #f39902;
+	color: #f39902;
 }
 .top_first {
-  width: 40px;
-  height: 40px;
-  background-color: #f39902;
-  border-radius: 20px;
-  text-align: center;
-  color: white;
-  font-size: 0.5rem;
-  line-height: 40px;
+	width: 40px;
+	height: 40px;
+	background-color: #f39902;
+	border-radius: 20px;
+	text-align: center;
+	color: white;
+	font-size: 0.5rem;
+	line-height: 40px;
 }
 .top_second {
-  width: 80px;
-  height: 1px;
-  background-color: #f39902;
-  margin-top: 20px;
+	width: 80px;
+	height: 1px;
+	background-color: #f39902;
+	margin-top: 20px;
 }
 .top_third {
-  width: 40px;
-  height: 40px;
-  background-color: #a1968f;
-  border-radius: 20px;
-  text-align: center;
-  color: #1d1c1c;
-  font-size: 0.5rem;
-  line-height: 40px;
+	width: 40px;
+	height: 40px;
+	background-color: #a1968f;
+	border-radius: 20px;
+	text-align: center;
+	color: #1d1c1c;
+	font-size: 0.5rem;
+	line-height: 40px;
 }
 .top_fourth {
-  width: 80px;
-  height: 1px;
-  background-color: #a1968f;
-  margin-top: 20px;
+	width: 80px;
+	height: 1px;
+	background-color: #a1968f;
+	margin-top: 20px;
 }
 .top_fifth {
-  width: 40px;
-  height: 40px;
-  background-color: #a1968f;
-  border-radius: 20px;
-  text-align: center;
-  color: #1d1c1c;
-  font-size: 0.5rem;
-  line-height: 40px;
+	width: 40px;
+	height: 40px;
+	background-color: #a1968f;
+	border-radius: 20px;
+	text-align: center;
+	color: #1d1c1c;
+	font-size: 0.5rem;
+	line-height: 40px;
 }
 .name {
-  width: 90%;
-  height: 60px;
-  color: #786f6a;
-  font-size: 0.35rem;
-  border-bottom: 1px solid #44352f;
-  margin-left: 20px;
-  line-height: 60px;
-  display: inline-block;
+	width: 90%;
+	height: 60px;
+	color: #786f6a;
+	font-size: 0.35rem;
+	border-bottom: 1px solid #44352f;
+	margin-left: 20px;
+	line-height: 60px;
+	display: inline-block;
 }
 .na {
-  width: 130px;
-  height: 60px;
-  float: left;
+	width: 130px;
+	height: 60px;
+	float: left;
 }
 .na_text {
-  float: left;
+	float: left;
 }
 .na_text input {
-  font-size: 0.3rem;
+	font-size: 0.3rem;
 }
 .country {
-  width: 90%;
-  height: 60px;
-  color: #786f6a;
-  font-size: 0.35rem;
-  border-bottom: 1px solid #44352f;
-  margin-left: 20px;
-  line-height: 60px;
-  display: inline-block;
-  .na_text {
-    color: white;
-  }
+	width: 90%;
+	height: 60px;
+	color: #786f6a;
+	font-size: 0.35rem;
+	border-bottom: 1px solid #44352f;
+	margin-left: 20px;
+	line-height: 60px;
+	display: inline-block;
+	.na_text {
+		color: white;
+	}
 }
 .number {
-  width: 90%;
-  height: 60px;
-  color: #786f6a;
-  font-size: 0.35rem;
-  border-bottom: 1px solid #44352f;
-  margin-left: 20px;
-  line-height: 60px;
-  display: inline-block;
+	width: 90%;
+	height: 60px;
+	color: #786f6a;
+	font-size: 0.35rem;
+	border-bottom: 1px solid #44352f;
+	margin-left: 20px;
+	line-height: 60px;
+	display: inline-block;
 }
 .id_btn {
-  width: 100%;
-  height: 200px;
+	width: 100%;
+	height: 200px;
 }
 .btn {
-  height: 50px;
-  width: 93%;
-  background-color: #f39902;
-  font-size: 0.3rem;
-  border-radius: 5px;
-  margin-left: 15px;
+	height: 50px;
+	width: 93%;
+	background-color: #f39902;
+	font-size: 0.3rem;
+	border-radius: 5px;
+	margin-left: 15px;
 }
 </style>
 

@@ -69,23 +69,7 @@
 		},
 		created() {
 			this.transitionName = this.$route.query.path === "notice"?"slide-left":"slide-right";
-
-			let [uid,loginSign] = [localStorage.getItem("uid"),localStorage.getItem("loginSign")];
-			let baseStr = this.$store.state.str;
-			
-			let basInfo = {
-				method:"post",
-				url: this.$store.state.url+"api/Article/getArticleList",
-				data:{
-					uid,
-					loginSign,
-				}
-			};
-			
-			let info = this.deepCopy(basInfo);
-			this.bindToken(info.data,baseStr);//给info绑定accesstoken属性
-
-			info.data = this.paramsPak(info.data);
+			const info = this.baseApi("api/Article/getArticleList");
 			this.loading = true;
 			axios(info)
 			.then((response) => {
@@ -114,7 +98,7 @@
 					this.myscroll.on("scroll",scrollFun);
 
 					//定义scrollEnd方法
-					let scrollEnd = this.scrollEnd(this,basInfo);
+					let scrollEnd = this.scrollEnd(this,"api/Article/getArticleList");
 					this.myscroll.on("scrollEnd",scrollEnd);
 				},300);
 			})

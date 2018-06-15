@@ -12,7 +12,9 @@ import note from '../components/Home/notice'
 import Notelist from '@/components/Home/notelist'
 import WalletAddr from '@/components/Person/walletAddr'
 import Order from "@/components/C2C/order"
+import CreditCard from "@/components/Person/creditCard"
 
+//lzy
 import  Identification from '@/components/Home/identification'
 import  Idstepthree from '@/components/Home/idstepthree'
 import  Idsteptwo from '@/components/Home/idsteptwo'
@@ -24,6 +26,11 @@ Vue.use(Router)
 export default new Router({
 
 	routes: [
+	{
+		path:"/creditCard",
+		component:CreditCard,
+		name:'creditcard'
+	},
 	{
 		path:"/order",
 		component:Order,

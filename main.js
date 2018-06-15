@@ -75,18 +75,12 @@ Object.assign(Vue.prototype,{
   	},
 
   	 //定义Iscroll的scrollEnd事件方法
-  	 scrollEnd(arg,{method,url,data}){           
+  	 scrollEnd(arg,url){           
   	 	return function(){
   	 		if(arg.scroll.loadtext == arg.$t('scroll.loosen')){
-  	 			let info = arg.deepCopy(data);
   	 			let page = ++arg.scroll.page;
-  	 			Object.assign(info,{page});
-  	 			arg.bindToken(info,arg.$store.state.str);//给info绑定accesstoken属性
-  	 			axios({
-  	 				method,
-  	 				url,
-  	 				data:arg.paramsPak(info),
-  	 			})
+  	 			const info = arg.baseApi(url,{page});
+  	 			axios(info)
   	 			.then(response => {
   	 				if(response.data.error_code == 0){
   	 					arg.list = [...arg.list,...response.data.data.data];
