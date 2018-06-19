@@ -20,7 +20,7 @@
     height:.9rem;
     width:100%;
     i{
-      @include fl(.7rem,.9rem,#fff);
+      @include fl(.5rem,.9rem,#fff);
       width:0.9rem;
       display:block;
       @include flex(row,center);

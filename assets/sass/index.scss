@@ -4,7 +4,8 @@
 $headcolor:                      rgba(28,56,93,0.5);
 $btncolor:						 #ffc334;
 $linecolor:					     #44352f;
-$timecolor:                      #5c6273;			
+$timecolor:                      #5c6273;
+$fontcolor:                      #97989a;			
 @mixin fl($data1,$data2,$data3:#fff){
 	font-size:$data1;
 	line-height:$data2;

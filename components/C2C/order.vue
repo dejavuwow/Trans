@@ -40,8 +40,8 @@
 			return{
 				title:this.$t('C2C.b1'),
 				inpList:[		
-				{name:"num",type:"text",placeholder:this.$t('sellout.s33'),value:""},
-				{name:"price",type:"text",placeholder:this.$t('sellout.s34'),value:""},
+				{name:"num",type:"text",placeholder:this.$t('order.price'),value:""},
+				{name:"price",type:"text",placeholder:this.$t('order.num'),value:""},
 				{name:"tradepwd",type:"password",placeholder:this.$t('register.ppwd'),value:""}
 				],
 				list:[],

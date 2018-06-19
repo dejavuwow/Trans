@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="inp_wrap">
 		<input :type="inputData.type" 
 		:value = "inputData.value"
 		:placeholder = "inputData.placeholder"
@@ -32,10 +32,11 @@
 </script>
 <style lang="scss">
 	@import '../../assets/sass/index.scss';
-	input{
-		width:100px;
-		height:30px;
-		border:1px solid #eee;
+	.inp_wrap{
+		input{
+			width:200px;
+			height:30px;
+			border:1px solid #eee;
+		}
 	}
-	
 </style>
